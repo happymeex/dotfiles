@@ -1,0 +1,20 @@
+snippet preamble "standard document header for e.g. psets"
+\documentclass[12pt]{article}
+\usepackage{ekz}
+
+\title{$1}
+\author{$2}
+\date{$3}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet hr "hyperref \href"
+\href{${1:url}}{${2:display name}}$0
+endsnippet
+

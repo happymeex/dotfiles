@@ -1,0 +1,96 @@
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+snippet "(^|[^a-zA-Z])mm" "inline math mode" rA
+`!p snip.rv = match.group(1)`\$${1:${VISUAL:}}\$$0
+endsnippet
+
+context "math()"
+snippet ff "fractions" i
+\frac{$1}{$2}$0
+endsnippet
+
+snippet cm "centered math mode" bA
+\[
+	$1
+\]
+$0
+endsnippet
+
+snippet env "generic environment" b
+\begin{$1}
+	${2:${VISUAL:}}
+\end{$1}
+$0
+endsnippet
+
+context "math()"
+snippet sb "subscripts" Ai
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet sp "superscripts" Ai
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet lim "subscript superscript limits" i
+_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet inv "inverse" iA 
+^{-1}
+endsnippet
+
+context "math()"
+snippet kl "parentheses" iA
+(${1:${VISUAL:}})$0
+endsnippet
+
+context "math()"
+snippet mp "\left \right parentheses" i
+\left(${1:${VISUAL:}}\right)$0
+endsnippet
+
+context "math()"
+snippet cb "curly braces" iA
+\{${1:${VISUAL:}}\}$0
+endsnippet
+
+context "math()"
+snippet stt "set braces" iA
+\\\{${1:${VISUAL:}}\\\}$0
+endsnippet
+
+context "math()"
+snippet bp "brackets" iA
+[${1:${VISUAL:}}]$0
+endsnippet
+
+context "math()"
+snippet df "define equals" iA
+:=
+endsnippet
+
+context "math()"
+snippet ev "evaluated at" i
+\eval*{$1}_{$2}$0
+endsnippet
+
+snippet diag
+\[
+	\begin{tikzcd}
+		$1
+	\end{tikzcd}
+\]
+$0
+endsnippet
+
+context "math()"
+snippet bop "direct sum bigoplus" iA
+\bigoplus
+endsnippet
